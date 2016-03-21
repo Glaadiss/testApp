@@ -1,0 +1,51 @@
+
+<%= react_component('Users', { users: @users}) %>
+
+<!-- 
+<div>
+<%= content_tag :div, class: "users_information", data: {users: @users} do %>
+<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Users</h1>
+<select id="select">
+<% @users.each do |user| %>
+<option><%=user.name %></option>
+
+<% end %>
+</select>
+
+</br></br>
+<select id="select2" >
+
+</select>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>Age</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %> 
+      <tr id="user_<%=user.id %>">
+        <td><%= user.name %></td>
+        <td><%= user.surname %></td>
+        <td><%= user.age %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete,remote: true %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User', new_user_path %>
